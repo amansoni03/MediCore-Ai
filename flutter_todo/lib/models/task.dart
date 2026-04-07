@@ -2,9 +2,9 @@ import 'dart:convert';
 
 class Task {
   final String id;
-  String title;
-  String description;
-  bool isDone;
+  final String title;
+  final String description;
+  final bool isDone;
   final DateTime createdAt;
 
   Task({

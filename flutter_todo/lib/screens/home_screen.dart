@@ -142,9 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       const SizedBox(width: 12),
                       Expanded(
                         child: LinearProgressIndicator(
-                          value: _tasks.isEmpty
-                              ? 0
-                              : _doneCount / _tasks.length,
+                          value: _doneCount / _tasks.length,
                           borderRadius: BorderRadius.circular(4),
                         ),
                       ),
