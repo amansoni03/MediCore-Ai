@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700;900&display=swap');
+
+:root {
+  /* ── Background layers ── */
+  --bg-base:    #f4f6f8;
+  --bg-surface: #ffffff;
+  --bg-card:    #ffffff;
+  --bg-elevated:#ffffff;
+
+  /* ── Premium accent palette ── */
+  --blue-clinic: #004d99; /* Classic Clinic Blue */
+  --blue-dark:   #00205c; /* Deep Navy */
+  --teal-pharm:  #0ea5e9; /* Pharm style cyan/teal */
+  --emerald:     #10b981;
+  --rose:        #e11d48;
+  --amber:       #f59e0b;
+
+  /* ── Mapped roles ── */
+  --primary:       var(--blue-clinic);
+  --primary-glow:  rgba(0, 77, 153, 0.15);
+  --secondary:     var(--teal-pharm);
+  --accent:        var(--emerald);
+  --danger:        var(--rose);
+
+  /* ── Text ── */
+  --text-primary: #111827;
+  --text-main:    #1f2937;
+  --text-secondary:#4b5563;
+  --text-muted:   #6b7280;
+
+  /* ── Border ── */
+  --border-subtle: #e5e7eb;
+  --border-card:   #d1d5db;
+
+  /* ── Typography ── */
+  --font-heading: 'Merriweather', Georgia, serif;
+  --font-body:    'Inter', sans-serif;
+
+  /* ── Gradients ── */
+  --grad-hero:    linear-gradient(135deg, var(--blue-clinic) 0%, var(--blue-dark) 100%);
+  --grad-primary: linear-gradient(135deg, var(--blue-clinic), var(--blue-dark));
+  --grad-health:  linear-gradient(135deg, #14b8a6, #059669);
+  --grad-warm:    linear-gradient(135deg, #e11d48, #d97706);
+}
+
+/* ─── Reset ──────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-base);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+/* ─── Cards / Containers ────────────────────────────── */
+.glass-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+}
+
+/* ─── Typography Utilities ───────────────────── */
+.text-gradient {
+  background: var(--grad-hero);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-health {
+  background: var(--grad-health);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-muted    { color: var(--text-muted); }
+.text-secondary{ color: var(--text-secondary); }
+.text-accent   { color: var(--accent); }
+.text-center   { text-align: center; }
+.font-heading  { font-family: var(--font-heading); }
+
+/* ─── Layout ─────────────────────────────────── */
+.flex-center  { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.mx-auto      { margin-left: auto; margin-right: auto; }
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ─── Buttons ────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  text-decoration: none;
+}
+
+.btn:active { transform: scale(0.98); }
+
+.btn-primary {
+  background: var(--blue-clinic);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,77,153,0.3);
+}
+
+.btn-primary:hover {
+  background: var(--blue-dark);
+  box-shadow: 0 4px 12px rgba(0,77,153,0.4);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border-card);
+  color: var(--text-main);
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(0,77,153,0.03);
+}
+
+.btn-danger {
+  background: rgba(225, 29, 72, 0.1);
+  border: 1px solid rgba(225, 29, 72, 0.2);
+  color: var(--danger);
+}
+
+.btn-danger:hover {
+  background: var(--danger);
+  color: #fff;
+}
+
+/* ─── Animations ─────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fadeIn 0.55s ease-out forwards; }
+
+@keyframes pulse-glow {
+  0%   { box-shadow: 0 0 0 0 rgba(139,92,246,0.4); }
+  70%  { box-shadow: 0 0 0 10px rgba(139,92,246,0); }
+  100% { box-shadow: 0 0 0 0 rgba(139,92,246,0); }
+}
+.glow-active { animation: pulse-glow 2s infinite; }
+
+/* ─── Markdown ───────────────────────────────── */
+.markdown-body p           { margin-bottom: 0.6rem; }
+.markdown-body p:last-child{ margin-bottom: 0; }
+.markdown-body strong      { color: var(--cyan); font-weight: 700; }
+.markdown-body ul,
+.markdown-body ol          { margin-left: 1.25rem; margin-bottom: 0.75rem; }
+.markdown-body li          { margin-bottom: 0.2rem; }
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3          { color: #e2e8f0; margin-bottom: 0.5rem; }
+
+/* ─── Scrollbar ──────────────────────────────── */
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.18); }
+
+/* ─── Utility ────────────────────────────────── */
+.w-full { width: 100%; }
+.mt-4   { margin-top: 1rem; }
+.mb-6   { margin-bottom: 1.5rem; }
+.mb-2   { margin-bottom: 0.5rem; }
